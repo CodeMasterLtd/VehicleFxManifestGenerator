@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lng="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="shortcut icon" href="img/vfg.png" type="image/png"><!-- nice try -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="script.js"></script>
+    <title>VFG - Vehicle Fxmanifest Generator</title>
+</head>
+<body>
+    <form>
+    <div class="container" id="container">
+        <button class="btn" id="toggleBackgroundButton">Toggle Background</button>
+        <h1>VEHICLE FXMANIFEST GENERATOR</h1>
+
+            <div class="input-group">
+                <label for="author">Manifest Version:</label>
+                <b>Required</b>
+                <input type="text" id="fx_version_input" list="fx_version" size="50" placeholder="Choose Manifest Version">
+                <datalist id="fx_version">                    
+                    <option value="adamant"></option>
+                    <option value="cerulean"></option>
+                    <option value="bodacious"></option>
+                </datalist>
+            </div>
+
+            <div class="input-group">
+                <label for="version">Resource Version:</label>
+                <b>Not Required</b>
+                <input type="text" id="version" name="version" placeholder="1.0.0" pattern="^\d+(\.\d+)*$" title="Please enter a valid version number (e.g., 1.0.0)" value="1.0.0">
+            </div>
+            
+    
+            <div class="input-group">
+                <label for="name">Resource Name:</label>
+                <b>Not Required</b>
+                <input type="text" id="name" name="name" placeholder="Ford Focus RS" autocomplete="name">
+            </div>
+    
+            <div class="input-group">
+                <label for="description">Resource Description:</label>
+                <b>Not Required</b>
+                <input type="text" id="description" name="description" placeholder="Police Pack">
+            </div>
+    
+            <div class="input-group">
+                <label for="author">Resource Author:</label>
+                <b>Not Required</b>
+                <input type="text" id="author" name="author" placeholder="Code Master">
+            </div>
+
+            <label>
+                <h5>
+                <input class="tickbox" type="checkbox" id="includeVehicleNames" />
+                <a></a> Add vehicleNames.lua - </a>
+                <a href="vehiclesNames.html" target="_blank">VEHICLE NAMES GENERATOR</a>
+            </h5>
+            </label>            
+    
+            <div id="dataFilesContainer"></div>
+    
+            <button type="button" onclick="addDataFileEntry()">Add Data Files</button>
+    
+<button id="generateButton" type="button" onclick="generateManifest()">Generate Manifest</button>
+    
+        <div class="generated-manifest">
+            <div class="parent-container">
+            <button class="closeButtons" id="closeButton" style="display: none;">❌</button>
+        </div>
+            <h2 id="generatedManifestTitle" style="display: none;">Generated Manifest:</h2>
+            <pre id="generatedManifest" style="display: none;"></pre>
+            <button id="copyButton" style="display: none;">Copy to Clipboard</button>
+            <a type="submit" class="btn" onclick="openPopup()" id="downloadButton" style="display: none;">Download Manifest</a>
+            <div class="popup" id="popup">
+                <!-- <img src="https://static.vecteezy.com/system/resources/thumbnails/011/858/556/small_2x/green-check-mark-icon-with-circle-tick-box-check-list-circle-frame-checkbox-symbol-sign-png.png">-->
+                <h3>File Downloading</h3>
+                <p>Thank you for using Vehicle FXManifest Generator!</p>
+                <button class="btn" type="button" onclick="closePopup()">OK</button>
+            </div>
+        </div> 
+    </form>      
+
+<p>Note: When selecting meta files, you can change the name of the meta file to match your desired file structure, like <code>data/vehicles.meta</code> or <code>vehicleweapons_f22.meta</code>.</p>
+<h4>——————————</h4>
+
+<footer>
+    <div class="foot">
+    <p>&copy; 2024 CodeMaster. All rights reserved.</p>
+    <div class="social-media">
+        <a href="https://discord.com/invite/nguYr7xD?utm_source=Discord%20Widget&utm_medium=Connect" target="_blank"><i class="fab fa-discord" style="color: rgb(68, 171, 255);"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=61559501661235" target="_blank"><i class="fab fa-facebook-f" style="color: rgb(0, 140, 255);"></i></a>
+        <a href="https://www.instagram.com/_code.master/" target="_blank"><i class="fab fa-instagram" style="color: orangered;"></i></a>
+        <a href="mailto:info@codemaster.ltd" target="_blank"><i class="fa fa-envelope" style="color: rgb(255, 234, 208);"></i></a>
+        <a href="https://www.youtube.com/@CodeMaster2024" target="_blank"><i class="fab fa-youtube" style="color: red;"></i></a>
+    </div>
+    <a class="foot" id="version">V1.0.0.0</a> 
+</footer> 
+    </div>   
+</body>
+</html>
